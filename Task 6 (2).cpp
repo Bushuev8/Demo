@@ -4,6 +4,70 @@
 
 using namespace std;
 
+void PrintArray(const vector<int>& arr);
+int Func1(const vector<int>& arr);
+int Func2(const vector<int>& arr);
+void Func3(vector<int>& arr);
+
+/**
+* @brief Функция - точка входа в программу.
+* @return Результат функции main.
+*/
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    srand((unsigned int)time(NULL));
+
+    vector<int> n_array;
+    int rand_min = -1000;
+    int rand_max = 1000;
+    size_t n;
+
+    cout << "Введите размер массива n: ";
+
+    if (cin >> n)
+    {
+        cout << "Ввести числа вручную? (y/n)" << endl;
+        char yn;
+        cin >> yn;
+        bool is_random = yn != 'y';
+        cout << endl;
+
+        for (size_t i = 0; i < n; i++)
+        {
+            if (is_random)
+            {
+                n_array.push_back(rand() % (rand_max - rand_min + 1) + rand_min);
+            }
+            else
+            {
+                cout << "Введите элемент[" << i << "]: ";
+                int el;
+
+                if (cin >> el)
+                {
+                    n_array.push_back(el);
+                }
+                else
+                {
+                    cout << "Ошибка ввода";
+                    return 0;
+                }
+            }
+        }
+
+        PrintArray(n_array);
+        cout << "Сумма четных элементов равна " << Func1(n_array) << endl;
+        cout << "Количество двузначиных элементов равно " << Func2(n_array) << endl;
+        Func3(n_array);
+        PrintArray(n_array);
+        return 1;
+    }
+
+    cout << "Ошибка ввода";
+    return 0;
+}
+
 /**
 * @brief Вывод массива на экран.
 * @param arr - массив для вывода на экран.
@@ -72,65 +136,3 @@ void Func3(vector<int> & arr)
     }
 }
 
-/**
-* @brief Функция - точка входа в программу.
-* @return Результат функции main.
-*/
-int main()
-{
-    setlocale(LC_ALL, "rus");
-    srand((unsigned int)time(NULL));
-
-    vector<int> n_array;
-    int rand_min = -1000;
-    int rand_max = 1000;
-    int n;
-    bool is_good = true;
-
-    cout << "Введите размер массива n: ";
-    is_good = !!(cin >> n);
-
-    if (is_good)
-    {
-        cout << "Ввести числа вручную? (y/n)" << endl;
-        char yn;
-        cin >> yn;
-        bool is_random = yn != 'y';
-        cout << endl;
-
-        for (int i = 0; i < n; i++)
-        {
-            if (is_random)
-            {
-                n_array.push_back(rand() % (rand_max - rand_min + 1) + rand_min);
-            }
-            else
-            {
-                cout << "Введите элемент[" << i << "]: ";
-                int el;
-
-                if (cin >> el)
-                {
-                    n_array.push_back(el);
-                }
-                else
-                {
-                    is_good = false;
-                    break;
-                }
-            }
-        }
-    }
-
-    if (is_good)
-    {
-        PrintArray(n_array);
-        cout << "Сумма четных элементов равна " << Func1(n_array) << endl;
-        cout << "Количество двузначиных элементов равно " << Func2(n_array) << endl;
-        Func3(n_array);
-        PrintArray(n_array);
-    }
-
-    if (!is_good)
-        cout << "Ошибка ввода";
-}
