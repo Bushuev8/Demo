@@ -3,6 +3,40 @@
 
 using namespace std;
 
+double factorial(int f);
+double Func(int k);
+double FuncA(int n);
+double FuncB(int n, double e);
+
+/**
+* @brief Функция - точка входа в программу.
+* @return Результат функции main.
+*/
+int main()
+{
+    setlocale(LC_ALL, "rus");
+    
+    int n;
+    double e;
+
+    cout << "Введите целое число n: ";
+
+    if (cin >> n)
+    {
+        cout << "Введите число e: ";
+
+        if (cin >> e)
+        {
+            cout << "Ответ задания a): " << FuncA(n) << endl;
+            cout << "Ответ задания b): " << FuncB(n, e) << endl;
+            return 1;
+        }
+    }
+    
+    cout << "Ошибка ввода";
+    return 0;
+}
+
 /**
 * @brief Вычисление фаториала числа.
 * @param f - Число, факториал которого надо вычислить.
@@ -54,7 +88,7 @@ double FuncA(int n)
 double FuncB(int n, double e)
 {
     double sum = 0;
-    
+
     for (int i = 1; i <= n; i++)
     {
         double val = Func(i);
@@ -64,35 +98,4 @@ double FuncB(int n, double e)
     }
 
     return sum;
-}
-
-/**
-* @brief Функция - точка входа в программу.
-* @return Результат функции main.
-*/
-int main()
-{
-    setlocale(LC_ALL, "rus");
-    
-    int n;
-    double e;
-    bool is_good = true;
-
-    cout << "Введите целое число n: ";
-    is_good = !!(cin >> n);
-
-    if (is_good)
-    {
-        cout << "Введите число e: ";
-        is_good = !!(cin >> e);
-    }
-
-    if (is_good)
-    {
-        cout << "Ответ задания a): " << FuncA(n) << endl;
-        cout << "Ответ задания b): " << FuncB(n, e) << endl;
-    }
-
-    if (!is_good)
-        cout << "Ошибка ввода";
 }
