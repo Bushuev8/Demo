@@ -10,7 +10,7 @@ using namespace std;
 * @param z значение константы.
 * @return Результат функции a.
 */
-double CalculateA(double x, double y, double z);
+double CalculateA(const double x, const double y, const double z);
 
 /**
 * @brief Функция b.
@@ -20,7 +20,7 @@ double CalculateA(double x, double y, double z);
 * @param z значение константы.
 * @return Результат функции b.
 */
-double CalculateB(double a, double x, double y, double z);
+double CalculateB(const double a, const double x, const double y, const double z);
 
 /**
 * @brief Функция - точка входа в программу.
