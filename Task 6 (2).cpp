@@ -3,10 +3,27 @@
 #include <random>
 
 using namespace std;
-
+/**
+* @brief Вывод массива на экран.
+* @param arr - массив для вывода на экран.
+*/
 void PrintArray(const vector<int>& arr);
+/**
+* @brief Задание 1 - Подсчет суммы четных элементов массива.
+* @param arr - массив для подсчета суммы.
+* @return Сумма четных элементов массива.
+*/
 int Func1(const vector<int>& arr);
+/**
+* @brief Задание 2 - Подсчет количества двузначных элементов массива.
+* @param arr - массив для подсчета количества двузначных элементов.
+* @return Количество двузначных элементов массива.
+*/
 int Func2(const vector<int>& arr);
+/**
+* @brief Задание 3 - Замена последнего отрицательного элемента массива на модуль первого элемента.
+* @param arr - массив в котором будет произведена замена.
+*/
 void Func3(vector<int>& arr);
 
 /**
@@ -51,7 +68,7 @@ int main()
                 else
                 {
                     cout << "Ошибка ввода";
-                    return 0;
+                    return 1;
                 }
             }
         }
@@ -67,11 +84,6 @@ int main()
     cout << "Ошибка ввода";
     return 0;
 }
-
-/**
-* @brief Вывод массива на экран.
-* @param arr - массив для вывода на экран.
-*/
 void PrintArray(const vector<int> & arr)
 {
     cout << "Массив:" << endl;
@@ -84,11 +96,6 @@ void PrintArray(const vector<int> & arr)
     cout << endl << endl;
 }
 
-/**
-* @brief Задание 1 - Подсчет суммы четных элементов массива.
-* @param arr - массив для подсчета суммы.
-* @return Сумма четных элементов массива.
-*/
 int Func1(const vector<int>& arr)
 {
     int sum = 0;
@@ -102,11 +109,6 @@ int Func1(const vector<int>& arr)
     return sum;
 }
 
-/**
-* @brief Задание 2 - Подсчет количества двузначных элементов массива.
-* @param arr - массив для подсчета количества двузначных элементов.
-* @return Количество двузначных элементов массива.
-*/
 int Func2(const vector<int> & arr)
 {
     int count = 0;
@@ -120,10 +122,6 @@ int Func2(const vector<int> & arr)
     return count;
 }
 
-/**
-* @brief Задание 3 - Замена последнего отрицательного элемента массива на модуль первого элемента.
-* @param arr - массив в котором будет произведена замена.
-*/
 void Func3(vector<int> & arr)
 {
     for (auto elem = arr.rbegin(); elem != arr.rend(); elem++)
